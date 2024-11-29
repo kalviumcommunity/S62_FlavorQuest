@@ -11,3 +11,5 @@
 - **Ingredient-Based Suggestions**: Get recipe suggestions based on available ingredients.
 - **Favorites & Ratings**: Save recipes as favorites and rate them for others to benefit.
 - **User Accounts**: Create and manage accounts to upload recipes and save favorites.
+
+Happy Coding.
