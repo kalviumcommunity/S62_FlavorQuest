@@ -12,4 +12,6 @@
 - **Favorites & Ratings**: Save recipes as favorites and rate them for others to benefit.
 - **User Accounts**: Create and manage accounts to upload recipes and save favorites.
 
-Happy Coding ❤️.
+
+Render Deployment Link: https://s62-flavorquest.onrender.com/ping
+
