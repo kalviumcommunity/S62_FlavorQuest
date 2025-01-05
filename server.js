@@ -13,5 +13,6 @@ app.get('/ping',(req,res)=> {
 
 app.listen(PORT,()=>{
     connectDB()
-    console.log(`server is running on http://localhost:${PORT}`)
+    console.log(`Server is running on http://localhost:${PORT}`)
 })
+
