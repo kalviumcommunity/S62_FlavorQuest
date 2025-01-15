@@ -16,9 +16,8 @@ async function getDBFunc(){
     }
     
 }
-getDBFunc()
+getDBFunc();
 
-module.exports = {getDBFunc, connection};
 
 
 module.exports = {getDBFunc, connection};
