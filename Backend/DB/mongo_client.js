@@ -20,10 +20,6 @@ getDBFunc()
 
 module.exports = {getDBFunc, connection};
 
-    let db = connection.db("S62_FlavorQuest");
-    db=db.collection('Users');
-    return db;
-}
 
 module.exports = {getDBFunc, connection};
 
