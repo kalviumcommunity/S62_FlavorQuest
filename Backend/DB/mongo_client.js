@@ -2,7 +2,7 @@ if(process.env.NODE_ENV !=='PRODUCTION'){
     require('dotenv').config();
 }
 const mongoClient = require('mongodb').MongoClient;
-
+console.log(process.env.URL);
 const connection = new mongoClient(process.env.URL)
 async function getDBFunc(){
 
@@ -17,7 +17,6 @@ async function getDBFunc(){
     
 }
 getDBFunc();
-
 
 
 module.exports = {getDBFunc, connection};
