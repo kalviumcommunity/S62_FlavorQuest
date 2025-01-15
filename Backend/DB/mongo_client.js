@@ -5,6 +5,7 @@ const mongoClient = require('mongodb').MongoClient;
 
 const connection = new mongoClient(process.env.URL)
 async function getDBFunc(){
+
     try{
         await connection.connect()
         const db = connection.db("S62_FlavorQuest").collection('Users');
@@ -18,3 +19,11 @@ async function getDBFunc(){
 getDBFunc()
 
 module.exports = {getDBFunc, connection};
+
+    let db = connection.db("S62_FlavorQuest");
+    db=db.collection('Users');
+    return db;
+}
+
+module.exports = {getDBFunc, connection};
+
