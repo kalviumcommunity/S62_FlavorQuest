@@ -1,18 +1,6 @@
 {
-  "name": "asap",
-  "version": "1.0.0",
-  "description": "**Flavor Quest** is an intuitive recipe app that allows users to fetch recipes from external sources, upload their own, and explore a curated collection of recipes. With advanced filters like prep time, cuisine, and dietary preferences, it's perfect for food enthusiasts to discover and share delicious creations.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "mongoose": "^8.9.3"
+    "mongoose": "^8.9.4"
   }
 }
