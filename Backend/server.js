@@ -13,16 +13,18 @@ app.use(express.json());
 app.use("/users", router);
 
 
-app.get("/ping", (request, response) => {
-  return response.send("pong");
-});
-app.get("/", (req, res) => {
-  const status =
-    mongoose.connection.readyState === 1
-      ? "Database connected Sucessfully"
-      : "Not Connected";
-  res.send({ status });
-});
+app.get('/ping',(request,response)=>{
+    return response.send('pong')
+})
+app.get('/', async (req,res)=>{
+  const checkStatus=await connection.connect();
+  const readyState = connection.topology.isConnected()? 'Connected  Database successfully': 'Disconnected Database';
+  res.send({readyState})
+
+})
+
+
+
 
 app.listen(PORT, () => {
   connectDatabase();
