@@ -18,7 +18,7 @@ app.get('/ping',(request,response)=>{
 app.get('/',(req,res)=>{
     const status=mongoose.connection.readyState===1?'Database connected Sucessfully':'Not Connected';
     res.send({status})
-})
+});
 
 
 
