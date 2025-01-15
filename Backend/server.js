@@ -18,7 +18,7 @@ app.get('/ping',(request,response)=>{
 })
 app.get('/', async (req,res)=>{
   const checkStatus=await connection.connect();
-  const readyState = connection.topology.isConnected()? 'Connected successfully': 'Disconnected';
+  const readyState = connection.topology.isConnected()? 'Connected  Database successfully': 'Disconnected Database';
   res.send({readyState})
 });
 
