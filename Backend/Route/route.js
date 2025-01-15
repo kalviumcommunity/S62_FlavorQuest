@@ -12,7 +12,7 @@ router.get('/user',async(req,res)=>{
         console.log(userData);
         return res.status(200).send(userData);
     }catch(err){
-        return res.status(500).send({message:err.message});
+        return res.status(500).json({message:err.message});
     }
 })
 
@@ -20,11 +20,11 @@ router.post('/create-data',async(req,res)=>{
     try{
         const db=await getDBFunc();
         console.log(db,req.body);
-        const insertData=await db.insertOne(req.body);
+        const insertData=await db.insertOne({ ...req.body});
         return res.status(201).send({message:"Data inserted successfully",insertData});
 
     }catch(err){
-        return res.status(500).send({message:err.message});
+        return res.status(500).json({message:err.message});
     }
 })
 
@@ -33,11 +33,11 @@ router.delete('/:id',async(req,res)=>{
         const db=await getDBFunc();
         console.log(db);
         const {id}=req.params;
-        const deleteUser=await db.deleteOne({_id:new ObjectId(id)});
+        const deleteUser=await db.deleteOne({_id: new ObjectId(id)});
         return res.status(200).send({message:"Deleted successfully",deleteUser})
 
     }catch(err){
-        return res.status(500).send({message:err.message});
+        return res.status(500).json({message:err.message});
     }
 })
 
@@ -50,7 +50,8 @@ router.put('/:id',async(req,res)=>{
         return res.status(200).send({message:"Update successful",updateUser})
 
     }catch(err){
-        return res.status(500).send({message:err.message});
+        return res.status(500).json({message:err.message});
     }
 })
+
 module.exports=router
