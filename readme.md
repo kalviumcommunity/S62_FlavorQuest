@@ -15,3 +15,5 @@
 
 Render Deployment Link: https://s62-flavorquest.onrender.com/ping
 
+Deployment Link: https://deployingasap2.netlify.app/
+
