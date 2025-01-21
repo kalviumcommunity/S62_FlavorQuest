@@ -10,7 +10,7 @@ const SingleRecipe = () => {
             Delicious Chocolate Cake
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            A rich and moist chocolate cake that's perfect for any occasion.
+            A rich and moist chocolate cake that is perfect for any occasion.
             Follow the simple steps to indulge in this delicious homemade cake!
           </p>
         </div>
@@ -106,7 +106,7 @@ const SingleRecipe = () => {
       {/* Call to Action Section */}
       <section className="bg-[#150541] text-white text-center py-12 md:py-16">
         <h2 className="text-2xl md:text-3xl font-semibold">Try This Recipe Now!</h2>
-        <p className="mt-4 text-lg">Don't wait! Grab your ingredients and start baking this delicious chocolate cake today.</p>
+        <p className="mt-4 text-lg">Do not wait! Grab your ingredients and start baking this delicious chocolate cake today.</p>
         <a
           href="#signup"
           className="mt-6 inline-block bg-white text-[#150541] py-3 px-8 rounded-full text-lg font-semibold shadow-lg transform hover:scale-105 transition-transform"
