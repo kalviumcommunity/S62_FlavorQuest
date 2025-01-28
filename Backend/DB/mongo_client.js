@@ -8,7 +8,7 @@ async function getDBFunc(){
 
     try{
         await connection.connect()
-        const db = connection.db("S62_FlavorQuest").collection('Users');
+        const db = connection.db("ASAP").collection('users');
         return db;
     }catch(err){
         console.error("Failed to connect to mongodb",err);
