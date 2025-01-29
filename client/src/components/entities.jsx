@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 function Entities() {
     const [data, setData] = useState([])
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         const response = await axios.get('http://localhost:3010/users/user')
@@ -19,7 +21,16 @@ function Entities() {
     return (
         <div className="p-8 font-sans bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen">
             <h1 className="text-4xl font-bold text-white mb-8 text-center shadow-lg">User Entities</h1>
+            <div className="text-center mb-8">
+            <button
+                onClick={() =>navigate("/add-entity")} 
+                className="bg-teal-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-all duration-200"
+            >
+                Add New User
+            </button>
+             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
                 {
                     data?.map((ele, index) => {
                         return (

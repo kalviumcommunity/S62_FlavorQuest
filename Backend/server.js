@@ -6,10 +6,12 @@ const express = require("express");
 const connectDatabase = require("./DB/database.js");
 const router = require("./Route/route.js");
 const { getDBFunc, connection } = require("./DB/mongo_client.js");
+const cors=require('cors')
 const app = express();
 const PORT = process.env.PORT || 3010;
 
 app.use(express.json());
+app.use(cors())
 app.use("/users", router);
 
 
