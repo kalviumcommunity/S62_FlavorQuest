@@ -21,7 +21,7 @@ function AddEntity() {
         let newErrors = {};
 
         if (formData.name.length < 2) {
-            newErrors.name = "Name must be at least 2 characters long.";
+            newErrors.name = "Name must be at least 2 characters long";
         }
 
         if (!/^\d+$/.test(formData.age)) {
