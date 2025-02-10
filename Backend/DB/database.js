@@ -8,7 +8,7 @@ const DB=process.env.URL;
 const connectDatabase=async(req,res)=>{
 
     mongoose
-        .connect(DB,{useNewUrlParser:true,useUnifiedTopology:true})
+        .connect(DB)
         .then((data)=>{
             console.log(`DB connected succesfully : ${data.connection.host}`)
         })
