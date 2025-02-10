@@ -4,11 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 function Entities() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const fetchData = async () => {
-        const response = await axios.get("http://localhost:3010/users/user");
-        setData(response.data);
+        try {
+            const response = await axios.get("http://localhost:3010/users/user");
+            setData(response.data);
+        } catch (err) {
+            setError("Failed to fetch users. Please try again later.");
+            console.error("Error fetching data:", err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
@@ -16,17 +25,22 @@ function Entities() {
     }, []);
 
     const handleDelete = async (id) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+        if (!confirmDelete) return;
+
         try {
             await axios.delete(`http://localhost:3010/users/${id}`);
-            setData(data.filter((user) => user._id !== id)); 
+            setData(data.filter((user) => user._id !== id));
         } catch (error) {
             console.error("Error deleting user:", error);
+            alert("Failed to delete user. Please try again.");
         }
     };
 
     return (
         <div className="p-8 font-sans bg-gradient-to-br from-gray-800 via-gray-900 to-black min-h-screen">
             <h1 className="text-4xl font-bold text-white mb-8 text-center shadow-lg">User Entities</h1>
+            
             <div className="text-center mb-8">
                 <button
                     onClick={() => navigate("/add-entity")}
@@ -35,6 +49,18 @@ function Entities() {
                     Add New User
                 </button>
             </div>
+
+            {/* Show loading message */}
+            {loading && <p className="text-center text-gray-300">Loading users...</p>}
+
+            {/* Show error message if API call fails */}
+            {error && <p className="text-center text-red-400">{error}</p>}
+
+            {/* Show a message if there are no users */}
+            {!loading && data.length === 0 && !error && (
+                <p className="text-center text-gray-400">No users found. Click "Add New User" to create one.</p>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {data?.map((ele) => (
                     <div
