@@ -4,7 +4,9 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 const mongoose = require("mongoose");
 const express = require("express");
 const connectDatabase = require("./DB/database.js");
+const User = require('./model/UserModel.js')
 const router = require("./Route/route.js");
+const SQLRouter=require('./Route/SqlRoute.js')
 const { getDBFunc, connection } = require("./DB/mongo_client.js");
 const cors=require('cors');
 const app = express();
@@ -13,7 +15,7 @@ const PORT = process.env.PORT || 3010;
 app.use(express.json());
 app.use(cors());
 app.use("/users", router);
-
+app.use('/mysql',SQLRouter)
 
 app.get('/ping',(request,response)=>{
     return response.send('pong')
