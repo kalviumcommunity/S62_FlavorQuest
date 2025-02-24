@@ -1,6 +1,7 @@
 const {ObjectId}=require("mongodb");
 const express=require('express')
 const router=express.Router()
+const User=require('../model/UserModel.js')
 const {getDBFunc} = require("../DB/mongo_client.js");
 router.use(express.json())
 const mongoose=require('mongoose')
