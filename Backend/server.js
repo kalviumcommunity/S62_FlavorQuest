@@ -32,7 +32,6 @@ app.post('/login', (req, res) => {
   if (!username) {
       return res.status(400).json({ message: 'Username is required' });
   }
-
   res.cookie('username', username, { httpOnly: true, secure: true, sameSite: 'Strict' });
   res.json({ message: 'Login successful' });
 });
